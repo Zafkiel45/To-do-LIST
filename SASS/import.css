@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(31, 30, 30, 0.8666666667);
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin: 5% 0px;
+}
+
+#task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  height: 700px;
+  margin: 5% auto;
+  background-color: #242424;
+  border-radius: 0.625em;
+  position: relative;
+}
+#task-container #container-input {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  gap: 0.625em;
+  justify-content: center;
+}
+#task-container #container-input #tarefa {
+  border-radius: 0.625em;
+  padding: 0.75em;
+  border: none;
+  outline: none;
+}
+#task-container #container-input #button-add {
+  border-radius: 100%;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: rgb(159, 242, 159);
+}
+#task-container #container-input #button-remove {
+  height: 38px;
+  width: 100px;
+  background-color: rgb(242, 130, 130);
+  border-radius: 0.625em;
+  margin-left: 16%;
+  border: none;
+}
+#task-container #task {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 14.2857142857%;
+  left: 14.2857142857%;
+  border-radius: 0.625em;
+  background-color: #403D3D;
+}/*# sourceMappingURL=import.css.map */
