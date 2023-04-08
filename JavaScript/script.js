@@ -21,18 +21,22 @@ function visible(){
     let task = JSON.parse(localStorage.getItem(key) || "[]");
     const terafas_container = document.querySelector('#to-do');
     for(let c = 0; c < task.length; c++){
-        terafas_container.innerHTML += `<li class="item-to-do visible">${task[c].nome}<button class="checked"><img src="../assets/SVG/check.svg"></button></li>`
+        let lista = document.createElement('li')
+        terafas_container.appendChild(lista)
+        lista.innerHTML += `${task[c].nome}<button class="checks"><img src="../assets/SVG/check.svg"></button>`
     }
-    let check = document.querySelectorAll('.checked')
-    check.forEach(function(item){
-        item.addEventListener('click', hidden)
+
+    let check = document.querySelectorAll('.checks')
+    const checkArray = Array.from(check)
+    checkArray.forEach(function(item){
+        item.addEventListener('click', function(evento){
+            let task = JSON.parse(localStorage.getItem(key) || "[]");
+            let index = checkArray.find(function(elemento){
+                return 
+            })
+            console.log(index)
+        })
     })
-}
-
-function hidden(){
-    alert('pussy')
-}
-
-
+} 
 
 visible()
