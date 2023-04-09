@@ -13,30 +13,39 @@ add.addEventListener('click', function(){
             nome: input
         })
         localStorage.setItem(key, JSON.stringify(task))
-        visible()
+        tasks()
     }
 })
 
-function visible(){
+function tasks(){
     let task = JSON.parse(localStorage.getItem(key) || "[]");
-    const terafas_container = document.querySelector('#to-do');
+    let lista = document.querySelector('#to-do');
+    let idx = 0
+    lista.replaceChildren()
     for(let c = 0; c < task.length; c++){
-        let lista = document.createElement('li')
-        terafas_container.appendChild(lista)
-        lista.innerHTML += `${task[c].nome}<button class="checks"><img src="../assets/SVG/check.svg"></button>`
+        let li = document.createElement('li');
+        let nome = li.textContent.replace('Ok', '').trim();
+        lista.appendChild(li)
+        li.innerHTML = `${task[c]['nome']}<button class="check">Ok</button>`
     }
 
-    let check = document.querySelectorAll('.checks')
-    const checkArray = Array.from(check)
-    checkArray.forEach(function(item){
-        item.addEventListener('click', function(evento){
-            let task = JSON.parse(localStorage.getItem(key) || "[]");
-            let index = checkArray.find(function(elemento){
-                return 
-            })
-            console.log(index)
+    let buttons = document.querySelectorAll('.check');
+    buttons.forEach(function(item, index){
+        item.addEventListener('click', function(){
+            
+            remover(task[index].nome)
         })
     })
-} 
+}
 
-visible()
+function remover(x){
+    let task = JSON.parse(localStorage.getItem(key) || "[]");
+    let idx = task.findIndex(function(storage){
+        return storage.nome == x
+    })
+    task.splice(idx, 1)
+    localStorage.setItem(key, JSON.stringify(task))
+    tasks()
+}
+
+tasks()
