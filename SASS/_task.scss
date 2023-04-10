@@ -25,24 +25,26 @@
         justify-content: center;
         #tarefa {
             border-radius: convert(10px,16px);
-            padding: convert(12px, 16px);
+            padding: convert(20px, 16px);
             border: none;
             outline: none;
+            width: 220px;
+
         }
         #button-add {
             border-radius: 100%;
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border: none;
             background-color: rgb(159, 242, 159);
         }
         #button-remove {
-            height: 38px;
-            width: 100px;
             background-color: rgb(242, 130, 130);
             border-radius: convert(10px,16px);
-            margin-left: 16%;
             border: none;
+            width: 150px;
+            height: 50px;
+            margin-left: 5%;
         }
     }
     #task {
@@ -53,5 +55,35 @@
         left: porcentagem(100px, 700px);
         border-radius: convert(10px,16px);
         background-color: #403D3D;
+        padding: 1em;
+        #to-do {
+            list-style: none;
+            width: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25em;
+        }
+        .task-item {
+            display: flex; 
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            padding: 1em 1em; 
+            border-bottom: 1px solid gray;
+            transition: 0.9s;
+            &:hover {
+                padding-left: 2rem;
+                // transform: translateX(2%)
+            }
+        }
+        .check {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: none;
+            background-color: rgb(128, 234, 128);
+            outline: none;
+        }
     }
 }

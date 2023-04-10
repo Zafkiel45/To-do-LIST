@@ -2,12 +2,13 @@ const remove = document.querySelector('#button-remove');
 const add = document.querySelector('#button-add')
 const key = 'To-do Lista'
 
-
 add.addEventListener('click', function(){
     let input = document.querySelector('#tarefa');
     if(!input.value){
         alert('Verifique a Task e tente novamente')
-    } else {
+    } else if(validade()){
+        alert('Já existe uma task com este nome')
+    }else {
         let task = JSON.parse(localStorage.getItem(key) || "[]");
         task.push({
             nome: input.value
@@ -25,9 +26,10 @@ function tasks(){
     lista.replaceChildren()
     for(let c = 0; c < task.length; c++){
         let li = document.createElement('li');
+        li.classList.add('task-item')
         lista.appendChild(li)
-        li.innerHTML = `${task[c]['nome']}<button class="check">Ok</button>`
-    }
+        li.innerHTML = `${task[c]['nome']}<button class="check"><img src="../assets/svg/check.svg"></button>`
+        }
 
     let buttons = document.querySelectorAll('.check');
     buttons.forEach(function(item, index){
@@ -46,6 +48,20 @@ function remover(x){
     task.splice(idx, 1)
     localStorage.setItem(key, JSON.stringify(task))
     tasks()
+}
+
+remove.addEventListener('click', function(){
+    localStorage.removeItem(key);
+    tasks()
+})
+
+function validade(){
+    let task = JSON.parse(localStorage.getItem(key) || "[]");
+    let input = document.querySelector('#tarefa').value;
+    let existe = task.find(function(x){
+        return x.nome == input
+    })
+    return !existe ? false:true
 }
 
 tasks()

@@ -35,24 +35,25 @@ h1 {
 }
 #task-container #container-input #tarefa {
   border-radius: 0.625em;
-  padding: 0.75em;
+  padding: 1.25em;
   border: none;
   outline: none;
+  width: 220px;
 }
 #task-container #container-input #button-add {
   border-radius: 100%;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border: none;
   background-color: rgb(159, 242, 159);
 }
 #task-container #container-input #button-remove {
-  height: 38px;
-  width: 100px;
   background-color: rgb(242, 130, 130);
   border-radius: 0.625em;
-  margin-left: 16%;
   border: none;
+  width: 150px;
+  height: 50px;
+  margin-left: 5%;
 }
 #task-container #task {
   position: absolute;
@@ -62,4 +63,33 @@ h1 {
   left: 14.2857142857%;
   border-radius: 0.625em;
   background-color: #403D3D;
+  padding: 1em;
+}
+#task-container #task #to-do {
+  list-style: none;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+#task-container #task .task-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 1em 1em;
+  border-bottom: 1px solid gray;
+  transition: 0.9s;
+}
+#task-container #task .task-item:hover {
+  padding-left: 2rem;
+}
+#task-container #task .check {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: none;
+  background-color: rgb(128, 234, 128);
+  outline: none;
 }/*# sourceMappingURL=import.css.map */
