@@ -4,27 +4,27 @@ const key = 'To-do Lista'
 
 
 add.addEventListener('click', function(){
-    let input = document.querySelector('#tarefa').value;
-    if(!input){
+    let input = document.querySelector('#tarefa');
+    if(!input.value){
         alert('Verifique a Task e tente novamente')
     } else {
         let task = JSON.parse(localStorage.getItem(key) || "[]");
         task.push({
-            nome: input
+            nome: input.value
         })
         localStorage.setItem(key, JSON.stringify(task))
         tasks()
     }
+    input.value = ''
 })
 
 function tasks(){
     let task = JSON.parse(localStorage.getItem(key) || "[]");
     let lista = document.querySelector('#to-do');
-    let idx = 0
+
     lista.replaceChildren()
     for(let c = 0; c < task.length; c++){
         let li = document.createElement('li');
-        let nome = li.textContent.replace('Ok', '').trim();
         lista.appendChild(li)
         li.innerHTML = `${task[c]['nome']}<button class="check">Ok</button>`
     }
