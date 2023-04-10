@@ -28,7 +28,7 @@ function tasks(){
         let li = document.createElement('li');
         li.classList.add('task-item')
         lista.appendChild(li)
-        li.innerHTML = `${task[c]['nome']}<button class="check"><img src="../assets/svg/check.svg"></button>`
+        li.innerHTML = `${task[c]['nome']}<button class="check"><img src="./assets/svg/check.svg"></button>`
         }
 
     let buttons = document.querySelectorAll('.check');
